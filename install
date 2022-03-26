@@ -1,7 +1,16 @@
 #!/bin/sh
 
+function clean()
+{
+    rm -f ~/.vimrc
+    rm -f ~/.viminfo
+    rm -rf ~/.vim/plugged
+}
+
 function main()
 {
+    clean
+
     ln -s ~/.vim/vimrc ~/.vimrc
     vim -c :PlugInstall -c :q -c :q
     python3 ~/.vim/plugged/YouCompleteMe/install.py --all
