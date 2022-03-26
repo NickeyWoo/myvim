@@ -81,6 +81,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'chxuan/change-colorscheme'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 call plug#end()  
 
@@ -90,8 +91,8 @@ call plug#end()
 nmap <F2> :PreviousBuffer<cr>
 nmap <F3> :NextBuffer<cr>
 nmap <F4> :CloseBuffer<cr>
+nmap <F5> :YcmDiags<cr>
 nmap <F6> :BufOnly<cr>
-nmap <F8> :YcmDiags<cr>
 nmap <F9> :NERDTreeToggle<cr>
 nmap <F10> :TagbarToggle<cr>
 nmap <F11> :NextColorScheme<cr>
@@ -102,6 +103,7 @@ nmap <leader><leader>i :PlugInstall<cr>
 nmap <leader><leader>u :PlugUpdate<cr>
 nmap <leader><leader>c :PlugClean<cr>
 
+nmap <leader>c :edit ~/.vim/.ycm_extra_conf.py<cr>
 nmap <leader>e :edit $MYVIMRC<cr>
 nmap <leader>s :source $MYVIMRC<cr>
 nmap <leader>d :CloseBuffer<cr>
@@ -111,13 +113,13 @@ nmap <leader>g :Agit<cr>
 nmap <leader>t :TranslateW<cr>
 vmap <leader>t :TranslateWV<cr>
 
-nmap <leader>o :YcmCompleter GoToInclude<cr>
-
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 nmap <tab> <c-w><c-w>
+
+nmap cf :ClangFormat<cr>
 
 nmap ew <c-w><c-w>
 nmap enn :set nonu<cr>
@@ -127,7 +129,11 @@ nmap enp :set nopaste<cr>
 nmap ef :LeaderfFile .<cr>
 nmap eF :Ack!<space>
 
-nmap cf :ClangFormat<cr>
+nmap go :YcmCompleter GoToInclude<cr>
+nmap gd :YcmCompleter GoToDefinition<CR>
+nmap gD :YcmCompleter GoToDeclaration<CR>
+nmap gi :YcmCompleter GoToImplementation<CR>
+nmap gr :YcmCompleter GoToReferences<CR>
 
 nmap sg :split<cr>
 nmap sv :vsplit<cr>
@@ -191,7 +197,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
         \ "Clean" : "✔︎",
         \ 'Ignored' : '☒',
         \ "Unknown" : "?"
-        \ }
+    \ }
 
 " LeaderF
 let g:Lf_WildIgnore = {
@@ -205,35 +211,17 @@ let g:asyncrun_open = 1
 
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_extra_conf_globlist = ['~/*', '~/QQMail/*', '~/code/*', '~/bigdata/*']
 
 let g:ycm_use_clangd = 1
 let g:ycm_clangd_binary_path = '/usr/local/bin/clangd'
-" let g:ycm_python_sys_path = [
-        " \   '~/QQMail/',
-        " \   '~/code/',
-        " \   '~/code/leveldb',
-        " \   '~/code/rocksdb',
-        " \   '~/bigdata/',
-        " \   '~/bigdata/ClickHouse',
-        " \   '~/project/',
-        " \   '~/QQMail/mm3rd/',
-        " \   '~/QQMail/mm3rd/rapidjson/include/',
-        " \   '~/QQMail/mm3rd/boost/',
-        " \   '~/QQMail/mm3rd/curl/include/',
-        " \   '~/QQMail/mm3rd/hadoop/libhdfs/',
-        " \   '~/QQMail/mm3rd/jsoncpp/include/',
-        " \   '~/QQMail/mm3rd/jsoncpp/include/json/',
-        " \   '~/QQMail/mm3rd/l5client/',
-        " \   '~/QQMail/mm3rd/mysql/',
-        " \   '~/QQMail/mm3rd/protobuf/include/',
-        " \   '/usr/include/',
-        " \   '/usr/local/include'
-"         \ ]
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']
-" let g:ycm_goto_buffer_command = 'same-buffer'
-let g:ycm_goto_buffer_command = 'split-or-existing-window'
+let g:ycm_goto_buffer_command = 'same-buffer'
 let g:ycm_disable_for_files_larger_than_kb = 10000
 
 
