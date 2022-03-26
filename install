@@ -2,9 +2,9 @@
 
 function clean()
 {
-    rm -f ~/.vimrc
-    rm -f ~/.viminfo
-    rm -rf ~/.vim/plugged
+    sudo rm -f ~/.vimrc
+    sudo rm -f ~/.viminfo
+    sudo rm -rf ~/.vim/plugged
 }
 
 function main()
