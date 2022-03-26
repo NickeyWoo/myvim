@@ -1,0 +1,11 @@
+#!/bin/sh
+
+function main()
+{
+    ln -s ~/.vim/vimrc ~/.vimrc
+    vim -c :PlugInstall -c :q -c :q
+    python ~/.vim/plugged/YouCompleteMe/install.py --all
+}
+
+main
+

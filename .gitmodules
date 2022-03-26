@@ -1,0 +1,3 @@
+[submodule "third_party/lsp-examples"]
+	path = third_party/lsp-examples
+	url = https://github.com/ycm-core/lsp-examples
