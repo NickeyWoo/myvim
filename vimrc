@@ -141,7 +141,7 @@ nmap enp :set nopaste<cr>
 nmap gw <Plug>(YCMFindSymbolInWorkspace)
 nmap gf <Plug>(YCMFindSymbolInDocument)
 
-nmap gs :Switch<cr>
+nmap ga :Switch<cr>
 nmap go :YcmCompleter GoToInclude<cr>
 nmap gd :YcmCompleter GoToDefinition<CR>
 nmap gD :YcmCompleter GoToDeclaration<CR>
