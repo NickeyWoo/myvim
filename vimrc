@@ -30,10 +30,10 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set nowrap
+" set nowrap
 set backspace=2
 set sidescroll=10
-" set nofoldenable
+" set foldmethod=marker
 
 set wildmenu 
 set completeopt-=preview
@@ -61,6 +61,9 @@ colorscheme badwolf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+Plug 'easymotion/vim-easymotion'
+Plug 'mhinz/vim-signify'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-translator'
 Plug 'scrooloose/nerdcommenter'
@@ -211,6 +214,14 @@ let g:Lf_UseCache = 0
 
 " asyncrun
 let g:asyncrun_open = 1
+
+" vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
 
 " ycm
 let g:ycm_min_num_of_chars_for_completion = 1
