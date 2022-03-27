@@ -113,7 +113,7 @@ nmap <leader>d :CloseBuffer<cr>
 nmap <leader>F :Ack<space>
 nmap <leader>f :LeaderfFile<cr>
 nmap <leader>g :Agit<cr>
-vmap <leader>l :IndentLinesToggle<cr>
+nmap <leader>l :IndentLinesToggle<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>t :TranslateW<cr>
 vmap <leader>t :TranslateWV<cr>
