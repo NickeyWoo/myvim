@@ -7,9 +7,37 @@ function clean()
     sudo rm -rf ~/.vim/plugged
 }
 
+function installvim()
+{
+    VERSION=$(vim --version | grep -Eo "VIM - Vi IMproved [0-9.]+" | grep -Eo "[0-9.]+$");
+
+    if [ "${VERSION}" == "8.2" ]; then
+        return
+    fi
+
+    rm -rf ~/vim_latest
+    git clone https://github.com/vim/vim ~/vim_latest
+    cd ~/vim_latest
+    ./configure --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp \
+        --enable-pythoninterp \
+        --enable-perlinterp \
+        --enable-luainterp \
+        --enable-gui=gtk2 \
+        --enable-cscope \
+		--with-python3-command=python3 \
+		--with-python-command=python3 \
+        --prefix=/usr
+    make
+    sudo make install
+    cd -
+}
+
 function main()
 {
-    clean
+    #clean
+    installvim
 
     ln -s ~/.vim/vimrc ~/.vimrc
     vim -c :PlugInstall -c :q -c :q

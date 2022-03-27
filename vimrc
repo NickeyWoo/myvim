@@ -71,7 +71,6 @@ Plug 'wincent/ferret'
 Plug 'rhysd/vim-clang-format'
 Plug 'Yggdroot/LeaderF'
 Plug 'preservim/tagbar'
-Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -111,8 +110,11 @@ nmap <leader>e :edit $MYVIMRC<cr>
 nmap <leader>s :source $MYVIMRC<cr>
 nmap <leader>d :CloseBuffer<cr>
 
-nmap <leader>n :NERDTreeToggle<cr>
+nmap <leader>F :Ack<space>
+nmap <leader>f :LeaderfFile<cr>
 nmap <leader>g :Agit<cr>
+vmap <leader>l :IndentLinesToggle<cr>
+nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>t :TranslateW<cr>
 vmap <leader>t :TranslateWV<cr>
 
@@ -129,8 +131,6 @@ nmap enn :set nonu<cr>
 nmap en :set nu<cr>
 nmap ep :set paste<cr>
 nmap enp :set nopaste<cr>
-nmap ef :LeaderfFile .<cr>
-nmap eF :Ack!<space>
 
 nmap go :YcmCompleter GoToInclude<cr>
 nmap gd :YcmCompleter GoToDefinition<CR>
