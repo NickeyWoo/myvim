@@ -157,8 +157,11 @@ map g/ <Plug>(incsearch-stay)
 " 打开文件自动定位到最后编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
 
+" indentline
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+let g:indentLine_char = '┊'
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 let g:translator_history_enable = 'true'
 
