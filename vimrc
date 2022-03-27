@@ -33,7 +33,8 @@ set softtabstop=4
 " set nowrap
 set backspace=2
 set sidescroll=10
-" set foldmethod=marker
+set foldmethod=indent
+set foldlevel=1
 
 set wildmenu 
 set completeopt-=preview
@@ -62,14 +63,14 @@ colorscheme badwolf
 call plug#begin('~/.vim/plugged')
 
 Plug 'easymotion/vim-easymotion'
-Plug 'mhinz/vim-signify'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-translator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'cohama/agit.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv'
+Plug 'pseewald/vim-anyfold'
+Plug 'airblade/vim-gitgutter'
 Plug 'wincent/ferret'
 Plug 'rhysd/vim-clang-format'
 Plug 'Yggdroot/LeaderF'
@@ -113,6 +114,7 @@ nmap <leader>e :edit $MYVIMRC<cr>
 nmap <leader>s :source $MYVIMRC<cr>
 nmap <leader>d :CloseBuffer<cr>
 
+nmap <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>F :Ack<space>
 nmap <leader>f :LeaderfFile<cr>
 nmap <leader>g :Agit<cr>
@@ -159,6 +161,9 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 let g:translator_history_enable = 'true'
+
+" anyfold
+let g:anyfold_fold_comments=1
 
 " 注释
 let g:NERDSpaceDelims = 1
