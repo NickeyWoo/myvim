@@ -33,8 +33,9 @@ set softtabstop=4
 " set nowrap
 set backspace=2
 set sidescroll=10
-set foldmethod=indent
-set foldlevel=2
+set nofoldenable
+" set foldmethod=indent
+" set foldlevel=2
 
 set wildmenu 
 set completeopt-=preview
