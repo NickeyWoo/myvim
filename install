@@ -20,14 +20,14 @@ function installvim()
     cd ~/vim_latest
     ./configure --with-features=huge \
         --enable-multibyte \
-        --enable-rubyinterp \
-        --enable-pythoninterp \
-        --enable-perlinterp \
-        --enable-luainterp \
+        --with-tlib=tinfo \
+        --enable-rubyinterp=yes \
+        --enable-pythoninterp=yes \
+		--enable-python3interp=yes \
+        --enable-perlinterp=yes \
+        --enable-luainterp=yes \
         --enable-gui=gtk2 \
         --enable-cscope \
-		--with-python3-command=python3 \
-		--with-python-command=python3 \
         --prefix=/usr
     make
     sudo make install
