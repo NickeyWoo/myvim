@@ -62,6 +62,7 @@ colorscheme badwolf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+Plug 'NickeyWoo/cpp-mode'
 Plug 'easymotion/vim-easymotion'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
@@ -137,10 +138,14 @@ nmap en :set nu<cr>
 nmap ep :set paste<cr>
 nmap enp :set nopaste<cr>
 
+nmap gw <Plug>(YCMFindSymbolInWorkspace)
+nmap gf <Plug>(YCMFindSymbolInDocument)
+
+nmap gs :Switch<cr>
 nmap go :YcmCompleter GoToInclude<cr>
 nmap gd :YcmCompleter GoToDefinition<CR>
 nmap gD :YcmCompleter GoToDeclaration<CR>
-nmap gi :YcmCompleter GoToImplementation<CR>
+nmap gi :GoToFunImpl<cr>
 nmap gr :YcmCompleter GoToReferences<CR>
 
 nmap sg :split<cr>
