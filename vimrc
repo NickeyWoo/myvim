@@ -117,6 +117,9 @@ nmap <leader><leader>i :PlugInstall<cr>
 nmap <leader><leader>u :PlugUpdate<cr>
 nmap <leader><leader>c :PlugClean<cr>
 
+nmap <leader><leader>t :TranslateW<cr>
+vmap <leader><leader>t :TranslateWV<cr>
+
 nmap <leader>c :edit ~/.vim/.ycm_extra_conf.py<cr>
 nmap <leader>e :edit $MYVIMRC<cr>
 nmap <leader>s :source $MYVIMRC<cr>
@@ -128,8 +131,7 @@ nmap <leader>f :LeaderfFile<cr>
 nmap <leader>g :Agit<cr>
 nmap <leader>l :IndentLinesToggle<cr>
 nmap <leader>n :NERDTreeToggle<cr>
-nmap <leader>t :TranslateW<cr>
-vmap <leader>t :TranslateWV<cr>
+nmap <leader>t :TagbarToggle<cr>
 
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
