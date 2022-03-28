@@ -50,6 +50,10 @@ set noswapfile
 set autowrite
 set confirm
 
+set undolevels=20000
+set undofile
+set undodir=$HOME/.vim/undo
+
 set langmenu=zh_CN,UTF-8
 set helplang=cn
 set termencoding=utf-8
@@ -63,6 +67,8 @@ colorscheme badwolf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'NickeyWoo/cpp-mode'
 Plug 'easymotion/vim-easymotion'
 Plug 'octol/vim-cpp-enhanced-highlight'
