@@ -127,11 +127,14 @@ nmap <leader>d :CloseBuffer<cr>
 
 nmap <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>F :Ack<space>
-nmap <leader>f :LeaderfFile<cr>
+nmap <leader>f :Files<cr>
 nmap <leader>g :Agit<cr>
 nmap <leader>l :IndentLinesToggle<cr>
 nmap <leader>n :NERDTreeToggle<cr>
 nmap <leader>t :TagbarToggle<cr>
+
+nmap bp :PreviousBuffer<cr>
+nmap bn :NextBuffer<cr>
 
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
