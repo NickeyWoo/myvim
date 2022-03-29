@@ -145,10 +145,8 @@ nmap <tab> <c-w><c-w>
 nmap <silent> cf :ClangFormat<cr>
 
 nmap <silent> ew <c-w><c-w>
-nmap <silent> enn :set nonu<cr>
-nmap <silent> en :set nu<cr>
-nmap <silent> ep :set paste<cr>
-nmap <silent> enp :set nopaste<cr>
+nmap <silent> en :set number!<cr>
+nmap <silent> ep :set paste!<cr>
 
 nmap <silent> gw <Plug>(YCMFindSymbolInWorkspace)
 nmap <silent> gf <Plug>(YCMFindSymbolInDocument)
