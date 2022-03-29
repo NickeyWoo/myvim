@@ -102,39 +102,39 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快捷键配置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F2> :PreviousBuffer<cr>
-nmap <F3> :NextBuffer<cr>
-nmap <F4> :CloseBuffer<cr>
-nmap <F5> :YcmDiags<cr>
-nmap <F6> :BufOnly<cr>
-nmap <F9> :NERDTreeToggle<cr>
-nmap <F10> :TagbarToggle<cr>
-nmap <F11> :NextColorScheme<cr>
-nmap <S-F11> :PreviousColorScheme<cr>
-nmap <F12> :ShowColorScheme<cr>
+nmap <silent> <F2> :PreviousBuffer<cr>
+nmap <silent> <F3> :NextBuffer<cr>
+nmap <silent> <F4> :CloseBuffer<cr>
+nmap <silent> <F5> :YcmDiags<cr>
+nmap <silent> <F6> :BufOnly<cr>
+nmap <silent> <F9> :NERDTreeToggle<cr>
+nmap <silent> <F10> :TagbarToggle<cr>
+nmap <silent> <F11> :NextColorScheme<cr>
+nmap <silent> <S-F11> :PreviousColorScheme<cr>
+nmap <silent> <F12> :ShowColorScheme<cr>
 
-nmap <leader><leader>i :PlugInstall<cr>
-nmap <leader><leader>u :PlugUpdate<cr>
-nmap <leader><leader>c :PlugClean<cr>
+nmap <silent> <leader><leader>i :PlugInstall<cr>
+nmap <silent> <leader><leader>u :PlugUpdate<cr>
+nmap <silent> <leader><leader>c :PlugClean<cr>
 
-nmap <leader><leader>t :TranslateW<cr>
-vmap <leader><leader>t :TranslateWV<cr>
+nmap <silent> <leader><leader>t :TranslateW<cr>
+vmap <silent> <leader><leader>t :TranslateWV<cr>
+nmap <silent> <leader><leader>g :Agit<cr>
 
-nmap <leader>c :edit ~/.vim/.ycm_extra_conf.py<cr>
-nmap <leader>e :edit $MYVIMRC<cr>
-nmap <leader>s :source $MYVIMRC<cr>
-nmap <leader>d :CloseBuffer<cr>
+nmap <silent> <leader>c :edit ~/.vim/.ycm_extra_conf.py<cr>
+nmap <silent> <leader>e :edit $MYVIMRC<cr>
+nmap <silent> <leader>s :source $MYVIMRC<cr>
 
-nmap <leader>w <Plug>(easymotion-bd-w)
-nmap <leader>F :Ack<space>
-nmap <leader>f :Files<cr>
-nmap <leader>g :Agit<cr>
-nmap <leader>l :IndentLinesToggle<cr>
-nmap <leader>n :NERDTreeToggle<cr>
-nmap <leader>t :TagbarToggle<cr>
+nmap <silent> <leader>w <Plug>(easymotion-bd-w)
+nmap <silent> <leader>F :Ack<space>
+nmap <silent> <leader>f :Files<cr>
+nmap <silent> <leader>l :IndentLinesToggle<cr>
+nmap <silent> <leader>n :NERDTreeToggle<cr>
+nmap <silent> <leader>t :TagbarToggle<cr>
 
-nmap bp :PreviousBuffer<cr>
-nmap bn :NextBuffer<cr>
+nmap <silent> <leader>d :CloseBuffer<cr>
+nmap <silent> <leader>p :PreviousBuffer<cr>
+nmap <silent> <leader>b :NextBuffer<cr>
 
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
@@ -142,30 +142,46 @@ nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 nmap <tab> <c-w><c-w>
 
-nmap cf :ClangFormat<cr>
+nmap <silent> cf :ClangFormat<cr>
 
-nmap ew <c-w><c-w>
-nmap enn :set nonu<cr>
-nmap en :set nu<cr>
-nmap ep :set paste<cr>
-nmap enp :set nopaste<cr>
+nmap <silent> ew <c-w><c-w>
+nmap <silent> enn :set nonu<cr>
+nmap <silent> en :set nu<cr>
+nmap <silent> ep :set paste<cr>
+nmap <silent> enp :set nopaste<cr>
 
-nmap gw <Plug>(YCMFindSymbolInWorkspace)
-nmap gf <Plug>(YCMFindSymbolInDocument)
+nmap <silent> gw <Plug>(YCMFindSymbolInWorkspace)
+nmap <silent> gf <Plug>(YCMFindSymbolInDocument)
 
-nmap ga :Switch<cr>
-nmap go :YcmCompleter GoToInclude<cr>
-nmap gd :YcmCompleter GoToDefinition<CR>
-nmap gD :YcmCompleter GoToDeclaration<CR>
-nmap gi :GoToFunImpl<cr>
-nmap gr :YcmCompleter GoToReferences<CR>
+nmap <silent> ga :Switch<cr>
+nmap <silent> go :YcmCompleter GoToInclude<cr>
+nmap <silent> gd :YcmCompleter GoToDefinition<CR>
+nmap <silent> gD :YcmCompleter GoToDeclaration<CR>
+nmap <silent> gi :GoToFunImpl<cr>
+nmap <silent> gr :YcmCompleter GoToReferences<CR>
 
-nmap sg :split<cr>
-nmap sv :vsplit<cr>
+nmap <silent> sg :split<cr>
+nmap <silent> sv :vsplit<cr>
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+nmap <silent> /  <Plug>(incsearch-forward)
+nmap <silent> ?  <Plug>(incsearch-backward)
+nmap <silent> g/ <Plug>(incsearch-stay)
+
+let s:ycm_hover_popup = -1
+function s:Hover()
+  let response = youcompleteme#GetCommandResponse( 'GetDoc' )
+  if response == ''
+    return
+  endif
+
+  call popup_hide( s:ycm_hover_popup )
+  let s:ycm_hover_popup = popup_atcursor( balloon_split( response ), {} )
+endfunction
+
+" CursorHold triggers in normal mode after a delay
+autocmd CursorHold * call s:Hover()
+" Or, if you prefer, a mapping:
+nmap <silent> <c-d> :call <SID>Hover()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件配置
@@ -252,6 +268,12 @@ let g:cpp_no_function_highlight = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_extra_conf_globlist = ['~/*', '~/QQMail/*', '~/code/*', '~/bigdata/*']
+
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_error_symbol = '!!'
+let g:ycm_warning_symbol = '!'
+let g:ycm_add_preview_to_completeopt = 1
 
 let g:ycm_use_clangd = 1
 let g:ycm_clangd_binary_path = '/usr/local/bin/clangd'
