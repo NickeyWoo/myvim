@@ -22,6 +22,7 @@ set number
 set cursorline
 set virtualedit=block,onemore
 
+set timeoutlen=1000
 set autoindent
 set cindent
 set smartindent
@@ -73,15 +74,15 @@ Plug 'NickeyWoo/cpp-mode'
 Plug 'easymotion/vim-easymotion'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
-Plug 'voldikss/vim-translator'
+" Plug 'voldikss/vim-translator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'cohama/agit.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'pseewald/vim-anyfold'
+" Plug 'pseewald/vim-anyfold'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/ferret'
 Plug 'rhysd/vim-clang-format'
-Plug 'Yggdroot/LeaderF'
+" Plug 'Yggdroot/LeaderF'
 Plug 'preservim/tagbar'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -93,9 +94,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'chxuan/vim-buffer'
 Plug 'haya14busa/incsearch.vim'
 Plug 'chxuan/change-colorscheme'
-Plug 'skywind3000/asyncrun.vim'
+" Plug 'skywind3000/asyncrun.vim'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 call plug#end()  
 
