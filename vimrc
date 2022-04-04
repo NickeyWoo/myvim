@@ -20,7 +20,10 @@ set ruler
 set laststatus=2
 set number
 set cursorline
-set virtualedit=block,onemore
+set showmode
+set showmatch
+set linebreak
+set hidden
 
 set timeoutlen=1000
 set autoindent
