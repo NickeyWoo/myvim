@@ -271,11 +271,11 @@ let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_extra_conf_globlist = ['~/*', '~/QQMail/*', '~/code/*', '~/bigdata/*']
 
-let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_error_symbol = '!!'
 let g:ycm_warning_symbol = '!'
-let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_add_preview_to_completeopt = 0
 
 let g:ycm_use_clangd = 1
 let g:ycm_clangd_binary_path = '/usr/local/bin/clangd'
