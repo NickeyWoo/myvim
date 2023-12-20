@@ -18,7 +18,10 @@ function installvim()
     rm -rf ~/vim_latest
     git clone https://github.com/vim/vim ~/vim_latest
     cd ~/vim_latest
-    ./configure --with-features=huge \
+    ./configure \
+        --with-python-command=/data/home/nickwu/.conda/envs/torch/bin/python \
+        --with-python3-command=/data/home/nickwu/.conda/envs/torch/bin/python \
+        --with-features=huge \
         --enable-multibyte \
         --with-tlib=tinfo \
         --enable-rubyinterp=yes \
