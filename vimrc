@@ -31,9 +31,9 @@ set cindent
 set smartindent
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 " set nowrap
 set backspace=2
 set sidescroll=10
