@@ -222,7 +222,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
 " let g:clang_format#auto_format_on_insert_leave=1
-let g:clang_format#code_style="file:/Users/nickwu/.vim/.clang-format"
+let g:clang_format#code_style="file:$HOME/.vim/.clang-format"
 autocmd FileType c,cpp,cc,hh,h,hpp ClangFormatAutoEnable
 
 " airline
