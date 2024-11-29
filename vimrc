@@ -120,6 +120,12 @@ nmap <silent> <F11> :NextColorScheme<cr>
 nmap <silent> <S-F11> :PreviousColorScheme<cr>
 nmap <silent> <F12> :ShowColorScheme<cr>
 
+nmap <silent> tp :PreviousBuffer<cr>
+nmap <silent> tn :NextBuffer<cr>
+nmap <silent> cc :CloseBuffer<cr>
+nmap <silent> tt :TagbarToggle<cr>
+nmap <silent> <leader><leader>r :YcmRestartServer<cr>
+
 nmap <silent> <leader><leader>i :PlugInstall<cr>
 nmap <silent> <leader><leader>u :PlugUpdate<cr>
 nmap <silent> <leader><leader>c :PlugClean<cr>
@@ -152,7 +158,7 @@ nmap <tab> <c-w><c-w>
 nmap <silent> cf :ClangFormat<cr>
 
 nmap <silent> ew <c-w><c-w>
-nmap <silent> en :set number!<cr>
+nmap <silent> en :set number!<cr>:IndentLinesToggle<cr>
 nmap <silent> ep :set paste!<cr>
 
 nmap <silent> gw <Plug>(YCMFindSymbolInWorkspace)
@@ -217,6 +223,7 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
 " let g:clang_format#auto_format_on_insert_leave=1
 let g:clang_format#code_style="google"
+autocmd FileType c,cpp,cc,hh,h,hpp ClangFormatAutoEnable
 
 " airline
 let g:airline_theme="badwolf"
