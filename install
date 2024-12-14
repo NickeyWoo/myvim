@@ -17,11 +17,10 @@ function installvim()
         --enable-multibyte \
         --with-tlib=tinfo \
         --enable-rubyinterp=yes \
-        --enable-pythoninterp=yes \
         --enable-python3interp=yes \
         --enable-perlinterp=yes \
         --enable-luainterp=yes \
-        --enable-gui=gtk2 \
+        --enable-gtk3-check \
         --enable-cscope
     make -j 10
     sudo make install
