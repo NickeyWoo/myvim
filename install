@@ -10,8 +10,21 @@ function clean()
 function installvim()
 {
     rm -rf ~/.vim/latest
-    git clone https://github.com/vim/vim ~/.vim/latest
+    mkdir ~/.vim/latest
     cd ~/.vim/latest
+
+    wget -O vim_v9.1.0927.tar.gz https://github.com/vim/vim/archive/refs/tags/v9.1.0927.tar.gz
+    tar -zxvf vim_v9.1.0927.tar.gz
+    cd vim-9.1.0927
+
+    if [ -f "/cbs/gcc-14.2.0/bin/gcc" ]; then
+      export CC="/cbs/gcc-14.2.0/bin/gcc"
+      export CXX="/cbs/gcc-14.2.0/bin/g++"
+      export CFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
+      export CXXFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
+      export LDFLAGS="-L/data/home/nickwu/.miniconda3/envs/my/lib/ -lpython3"
+    fi
+
     ./configure \
         --with-features=huge \
         --enable-multibyte \
@@ -24,7 +37,8 @@ function installvim()
         --enable-cscope
     make -j 10
     sudo make install
-    cd -
+
+    cd ~
 }
 
 function main()
