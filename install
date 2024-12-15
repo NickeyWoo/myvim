@@ -50,7 +50,8 @@ function main()
     vim -c :PlugInstall -c :q -c :q
 
     cd $HOME/.vim/plugged/YouCompleteMe/third_party/ycmd
-    git checkout c7608ff1b9a1d8cfa9676eaa8e53a4cc0f9585b3
+    # git checkout c7608ff1b9a1d8cfa9676eaa8e53a4cc0f9585b3
+    git checkout eebd7cea7a9ff547fe7d5887c9159377fb5d478b
     git submodule update --init --recursive
 
     python3 $HOME/.vim/plugged/YouCompleteMe/install.py --all
