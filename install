@@ -47,8 +47,6 @@ function main()
     ln -s $HOME/.vim/vimrc $HOME/.vimrc
     vim -c :PlugInstall -c :q -c :q
 
-    ~/.vim/plugged/vim-clangd/script/build-clangd.sh
-
     echo "!!! vim evn install success !!!"
 }
 
