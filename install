@@ -18,11 +18,9 @@ function installvim()
     cd vim-9.1.0927
 
     if [ -f "/cbs/gcc-14.2.0/bin/gcc" ]; then
-      export CC=/cbs/gcc-14.2.0/bin/gcc
-      export CXX=/cbs/gcc-14.2.0/bin/g++
-      export CFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
-      export CXXFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
-      export LDFLAGS="-L/data/home/nickwu/.miniconda3/envs/my/lib/ -lpython3"
+~     export CFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/ -I/usr/local/include -I/usr/include $CFLAGS"
+~     export CXXFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/ -I/usr/local/include  -I/usr/include $CXXFLAGS"
+~_    export LDFLAGS="-L/data/home/nickwu/.miniconda3/envs/my/lib/ -lpython3 $LDFLAGS"
     fi
 
     ./configure \
@@ -50,11 +48,11 @@ function main()
     vim -c :PlugInstall -c :q -c :q
 
     cd $HOME/.vim/plugged/YouCompleteMe/third_party/ycmd
-    # git checkout c7608ff1b9a1d8cfa9676eaa8e53a4cc0f9585b3
-    git checkout eebd7cea7a9ff547fe7d5887c9159377fb5d478b
+    git checkout c7608ff1b9a1d8cfa9676eaa8e53a4cc0f9585b3
+    # git checkout eebd7cea7a9ff547fe7d5887c9159377fb5d478b
     git submodule update --init --recursive
 
-    python3 $HOME/.vim/plugged/YouCompleteMe/install.py --all
+    python3 $HOME/.vim/plugged/YouCompleteMe/install.py --verbose --enable-debug --clang-completer --go-completer --clang-tidy --valgrind
 
     echo "!!! vim evn install success !!!"
 }
