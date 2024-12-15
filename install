@@ -20,6 +20,9 @@ function installvim()
     if [ -f "$HOME/.miniconda3/envs/my/bin/x86_64-conda-linux-gnu-gcc" ]; then
       export CC=$HOME/.miniconda3/envs/my/bin/x86_64-conda-linux-gnu-gcc
       export CXX=$HOME/.miniconda3/envs/my/bin/x86_64-conda-linux-gnu-g++
+      export CFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
+      export CXXFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
+      export LDFLAGS="-L/data/home/nickwu/.miniconda3/envs/my/lib/ -lpython3"
     fi
 
     ./configure \
