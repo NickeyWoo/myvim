@@ -79,15 +79,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go'
-" Plug 'voldikss/vim-translator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'cohama/agit.vim'
-Plug 'tpope/vim-fugitive'
-" Plug 'pseewald/vim-anyfold'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/ferret'
 Plug 'rhysd/vim-clang-format'
-" Plug 'Yggdroot/LeaderF'
 Plug 'preservim/tagbar'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -100,9 +96,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'chxuan/vim-buffer'
 Plug 'haya14busa/incsearch.vim'
 Plug 'chxuan/change-colorscheme'
-" Plug 'skywind3000/asyncrun.vim'
-Plug 'ycm-core/YouCompleteMe'
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'abhishekgahlot/vim-clangd'
 
 call plug#end()  
 
@@ -112,7 +106,6 @@ call plug#end()
 nmap <silent> <F2> :PreviousBuffer<cr>
 nmap <silent> <F3> :NextBuffer<cr>
 nmap <silent> <F4> :CloseBuffer<cr>
-nmap <silent> <F5> :YcmDiags<cr>
 nmap <silent> <F6> :BufOnly<cr>
 nmap <silent> <F9> :NERDTreeToggle<cr>
 nmap <silent> <F10> :TagbarToggle<cr>
@@ -124,17 +117,13 @@ nmap <silent> tp :PreviousBuffer<cr>
 nmap <silent> tn :NextBuffer<cr>
 nmap <silent> cc :CloseBuffer<cr>
 nmap <silent> tt :TagbarToggle<cr>
-nmap <silent> <leader><leader>r :YcmRestartServer<cr>
 
 nmap <silent> <leader><leader>i :PlugInstall<cr>
 nmap <silent> <leader><leader>u :PlugUpdate<cr>
 nmap <silent> <leader><leader>c :PlugClean<cr>
 
-nmap <silent> <leader><leader>t :TranslateW<cr>
-vmap <silent> <leader><leader>t :TranslateWV<cr>
 nmap <silent> <leader><leader>g :Agit<cr>
 
-nmap <silent> <leader>c :edit ~/.vim/.ycm_extra_conf.py<cr>
 nmap <silent> <leader>e :edit $MYVIMRC<cr>
 nmap <silent> <leader>s :source $MYVIMRC<cr>
 
@@ -161,38 +150,12 @@ nmap <silent> ew <c-w><c-w>
 nmap <silent> en :set number!<cr>:IndentLinesToggle<cr>
 nmap <silent> ep :set paste!<cr>
 
-nmap <silent> gw <Plug>(YCMFindSymbolInWorkspace)
-nmap <silent> gf <Plug>(YCMFindSymbolInDocument)
-
-nmap <silent> ga :Switch<cr>
-nmap <silent> go :YcmCompleter GoToInclude<cr>
-nmap <silent> gd :YcmCompleter GoToDefinition<CR>
-nmap <silent> gD :YcmCompleter GoToDeclaration<CR>
-nmap <silent> gi :GoToFunImpl<cr>
-nmap <silent> gr :YcmCompleter GoToReferences<CR>
-
 nmap <silent> sg :split<cr>
 nmap <silent> sv :vsplit<cr>
 
 nmap <silent> /  <Plug>(incsearch-forward)
 nmap <silent> ?  <Plug>(incsearch-backward)
 nmap <silent> g/ <Plug>(incsearch-stay)
-
-let s:ycm_hover_popup = -1
-function s:Hover()
-  let response = youcompleteme#GetCommandResponse( 'GetDoc' )
-  if response == ''
-    return
-  endif
-
-  call popup_hide( s:ycm_hover_popup )
-  let s:ycm_hover_popup = popup_atcursor( balloon_split( response ), {} )
-endfunction
-
-" CursorHold triggers in normal mode after a delay
-autocmd CursorHold * call s:Hover()
-" Or, if you prefer, a mapping:
-nmap <silent> <c-d> :call <SID>Hover()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件配置
@@ -207,10 +170,6 @@ let g:indent_guides_start_level = 2
 let g:indentLine_char = '┊'
 " let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-let g:translator_history_enable = 'true'
-
-" anyfold
-let g:anyfold_fold_comments=1
 
 " 注释
 let g:NERDSpaceDelims = 1
@@ -221,8 +180,19 @@ let g:NERDToggleCheckAllLines = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
-" let g:clang_format#auto_format_on_insert_leave=1
-let g:clang_format#code_style="file:$HOME/.vim/.clang-format"
+let g:clang_format#code_style="google"
+let g:clang_format#style_options = {
+  \ "Language" : "Cpp",
+  \ "ColumnLimit" : 120,
+  \ "DerivePointerAlignment" : "true",
+  \ "PointerAlignment" : "Left",
+  \ "SortIncludes" : "false",
+  \ "SortUsingDeclarations" : "false",
+  \ "IncludeBlocks" : "Preserve",
+  \ "IndentPPDirectives" : "AfterHash",
+  \ "ForEachMacros" : [''],
+  \ "SpacesBeforeTrailingComments" : 2
+\ }
 autocmd FileType c,cpp,cc,hh,h,hpp ClangFormatAutoEnable
 
 " airline
@@ -274,9 +244,6 @@ let g:Lf_WildIgnore = {
         \}
 let g:Lf_UseCache = 0
 
-" asyncrun
-let g:asyncrun_open = 1
-
 " vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -285,25 +252,5 @@ let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
-" ycm
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_extra_conf_globlist = ['~/*', '~/QQMail/*', '~/code/*', '~/bigdata/*']
-
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_error_symbol = '!!'
-let g:ycm_warning_symbol = '!'
-let g:ycm_add_preview_to_completeopt = 0
-
-let g:ycm_use_clangd = 1
-let g:ycm_clangd_binary_path = '/usr/local/bin/clangd'
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']
-let g:ycm_goto_buffer_command = 'same-buffer'
-let g:ycm_disable_for_files_larger_than_kb = 10000
 
 
