@@ -252,5 +252,8 @@ let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
+" vim-clangd
+let g:clangd#clangd_executable = '~/.vim/plugged/vim-clangd/script/build-llvm/bin/clangd'
+
 
 
