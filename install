@@ -11,7 +11,7 @@ function installvim()
 {
     rm -rf ~/.vim/latest
     git clone https://github.com/vim/vim ~/.vim/latest
-    cd ~/vim_latest
+    cd ~/.vim/latest
     ./configure \
         --with-features=huge \
         --enable-multibyte \
