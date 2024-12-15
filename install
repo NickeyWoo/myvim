@@ -2,27 +2,24 @@
 
 function clean()
 {
-    sudo rm -f ~/.vimrc
-    sudo rm -f ~/.viminfo
-    sudo rm -rf ~/.vim/plugged
+    sudo rm -f $HOME/.vimrc
+    sudo rm -f $HOME/.viminfo
+    sudo rm -rf $HOME/.vim/plugged
 }
 
 function installvim()
 {
-    rm -rf ~/.vim/latest
-    mkdir ~/.vim/latest
-    cd ~/.vim/latest
+    rm -rf $HOME/.vim/latest
+    mkdir $HOME/.vim/latest
+    cd $HOME/.vim/latest
 
     wget -O vim_v9.1.0927.tar.gz https://github.com/vim/vim/archive/refs/tags/v9.1.0927.tar.gz
     tar -zxvf vim_v9.1.0927.tar.gz
     cd vim-9.1.0927
 
-    if [ -f "/cbs/gcc-14.2.0/bin/gcc" ]; then
-      export CC="/cbs/gcc-14.2.0/bin/gcc"
-      export CXX="/cbs/gcc-14.2.0/bin/g++"
-      export CFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
-      export CXXFLAGS="-I/data/home/nickwu/.miniconda3/envs/my/include/"
-      export LDFLAGS="-L/data/home/nickwu/.miniconda3/envs/my/lib/ -lpython3"
+    if [ -f "$HOME/.miniconda3/envs/my/bin/x86_64-conda-linux-gnu-gcc" ]; then
+      export CC=$HOME/.miniconda3/envs/my/bin/x86_64-conda-linux-gnu-gcc
+      export CXX=$HOME/.miniconda3/envs/my/bin/x86_64-conda-linux-gnu-g++
     fi
 
     ./configure \
@@ -38,7 +35,7 @@ function installvim()
     make -j 10
     sudo make install
 
-    cd ~
+    cd $HOME
 }
 
 function main()
@@ -46,9 +43,14 @@ function main()
     #clean
     installvim
 
-    ln -s ~/.vim/vimrc ~/.vimrc
+    ln -s $HOME/.vim/vimrc $HOME/.vimrc
     vim -c :PlugInstall -c :q -c :q
-    python3 ~/.vim/plugged/YouCompleteMe/install.py --all
+
+    cd $HOME/.vim/plugged/YouCompleteMe/third_party/ycmd
+    git checkout c7608ff1b9a1d8cfa9676eaa8e53a4cc0f9585b3
+    git submodule update --init --recursive
+
+    python3 $HOME/.vim/plugged/YouCompleteMe/install.py --all
 
     echo "!!! vim evn install success !!!"
 }
