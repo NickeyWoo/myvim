@@ -253,3 +253,62 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 
+" coc
+let g:coc_global_extensions = [
+      \ 'coc-marketplace',
+      \ '@yaegassy/coc-volar',
+      \ 'coc-tsserver',
+      \ 'coc-json',
+      \ 'coc-html', 'coc-css',
+      \ 'coc-clangd',
+      \ 'coc-go',
+      \ 'coc-sumneko-lua',
+      \ 'coc-vimlsp',
+      \ 'coc-sh', 'coc-db',
+      \ 'coc-java', 'coc-pyright',
+      \ 'coc-toml', 'coc-solidity',
+      \ 'coc-prettier',
+      \ 'coc-snippets', 'coc-pairs', 'coc-word',
+      \ 'coc-translator',
+      \ 'coc-git',
+      \ ]
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <c-@> coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
