@@ -312,4 +312,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+nmap <silent> <leader>x :CocCommand explorer<cr>
+
 
