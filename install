@@ -47,6 +47,11 @@ function main()
     ln -s $HOME/.vim/vimrc $HOME/.vimrc
     vim -c :PlugInstall -c :q -c :q
 
+    cd ~/.vim/plugged/coc.nvim
+    npm ci
+
+    vim
+
     echo "!!! vim evn install success !!!"
 }
 
