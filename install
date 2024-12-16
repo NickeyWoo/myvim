@@ -50,7 +50,7 @@ function main()
     cd ~/.vim/plugged/coc.nvim
     npm ci
 
-    vim
+    vim -c :CocUpdate -c :q -c :q
 
     echo "!!! vim evn install success !!!"
 }
