@@ -268,6 +268,7 @@ let g:coc_global_extensions = [
       \ 'coc-java', 'coc-pyright',
       \ 'coc-toml', 'coc-solidity',
       \ 'coc-prettier',
+      \ 'coc-sql', 'coc-protobuf',
       \ 'coc-snippets', 'coc-pairs', 'coc-word',
       \ 'coc-translator',
       \ 'coc-git',
