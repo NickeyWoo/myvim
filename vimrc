@@ -262,7 +262,7 @@ let g:coc_global_extensions = [
       \ 'coc-html', 'coc-css',
       \ 'coc-clangd', 'coc-yaml',
       \ 'coc-go', 'coc-jedi',
-      \ 'coc-sumneko-lua',
+      \ 'coc-sumneko-lua', 'coc-explorer',
       \ 'coc-vimlsp', 'coc-cmake',
       \ 'coc-sh', 'coc-db',
       \ 'coc-java', 'coc-pyright',
