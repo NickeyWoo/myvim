@@ -3,6 +3,7 @@ CompileFlags:
     - '-std=c++11'
     - '-Wall'
     - '-Werror'
+    - '-ferror-limit=0'
     - '-I.'
     - '-I/home/nickwu/QQMail/'
     - '-I/home/nickwu/QQMail/build64_debug'
