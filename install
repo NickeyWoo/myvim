@@ -44,7 +44,9 @@ function main()
     #clean
     installvim
 
+    mkdir $HOME/.config
     ln -s $HOME/.vim/vimrc $HOME/.vimrc
+    ln -s $HOME/.vim/clangd $HOME/.config/clangd
     vim -c :PlugInstall -c :q -c :q
 
     cd ~/.vim/plugged/coc.nvim
