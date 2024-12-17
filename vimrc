@@ -265,7 +265,7 @@ let g:coc_global_extensions = [
       \ 'coc-sumneko-lua', 'coc-explorer',
       \ 'coc-vimlsp', 'coc-cmake',
       \ 'coc-sh', 'coc-db',
-      \ 'coc-java', 'coc-pyright',
+      \ 'coc-pyright',
       \ 'coc-toml', 'coc-solidity',
       \ 'coc-prettier',
       \ 'coc-sql', 'coc-protobuf',
