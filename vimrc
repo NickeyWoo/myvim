@@ -258,7 +258,7 @@ let g:coc_global_extensions = [
       \ 'coc-marketplace',
       \ '@yaegassy/coc-volar',
       \ 'coc-tsserver',
-      \ 'coc-json',
+      \ 'coc-json', 'coc-diagnostic',
       \ 'coc-html', 'coc-css',
       \ 'coc-clangd', 'coc-yaml',
       \ 'coc-go', 'coc-jedi',
