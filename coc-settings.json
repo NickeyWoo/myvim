@@ -31,5 +31,11 @@
         "lintTool": "golint"
       }
     }
-  }
+  },
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "sha256": "ee3739525a995bcb5601621a6e2daec1f183bbefc375743acc235cec33547e04",
+      "allowed": true
+    }
+  ]
 }

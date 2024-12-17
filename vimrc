@@ -383,5 +383,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 nmap <silent> <leader>n :CocCommand explorer<cr>
+nnoremap <silent><nowait> <space>g  :CocCommand clangd.switchSourceHeader<cr>
 
 
