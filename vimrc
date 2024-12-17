@@ -131,7 +131,7 @@ nmap <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <silent> <leader>F :Ack<space>
 nmap <silent> <leader>f :Files<cr>
 nmap <silent> <leader>l :IndentLinesToggle<cr>
-nmap <silent> <leader>n :NERDTreeToggle<cr>
+" nmap <silent> <leader>n :NERDTreeToggle<cr>
 nmap <silent> <leader>t :TagbarToggle<cr>
 
 nmap <silent> <leader>d :CloseBuffer<cr>
@@ -312,6 +312,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <silent> <leader>x :CocCommand explorer<cr>
+nmap <silent> <leader>n :CocCommand explorer<cr>
 
 
