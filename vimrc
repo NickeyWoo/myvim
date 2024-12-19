@@ -180,20 +180,20 @@ let g:NERDToggleCheckAllLines = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
-let g:clang_format#code_style="google"
+let g:clang_format#code_style = "google"
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
 let g:clang_format#style_options = {
-  \ "Language" : "Cpp",
-  \ "ColumnLimit" : 120,
-  \ "DerivePointerAlignment" : "true",
-  \ "PointerAlignment" : "Left",
-  \ "SortIncludes" : "false",
-  \ "SortUsingDeclarations" : "false",
-  \ "IncludeBlocks" : "Preserve",
-  \ "IndentPPDirectives" : "AfterHash",
-  \ "ForEachMacros" : [''],
-  \ "SpacesBeforeTrailingComments" : 2
-\ }
+            \ "DerivePointerAlignment" : "false",
+            \ "PointerAlignment" : "Left",
+            \ "SortIncludes" : "false",
+            \ "SortUsingDeclarations" : "false",
+            \ "IncludeBlocks" : "Preserve",
+            \ "SpacesBeforeTrailingComments" : 2,
+            \ "ForEachMacros" : [''],
+            \ "IndentPPDirectives" : "AfterHash"}
 autocmd FileType c,cpp,cc,hh,h,hpp ClangFormatAutoEnable
+autocmd FileType proto ClangFormatAutoDisable
 
 " airline
 let g:airline_theme="badwolf"
