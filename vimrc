@@ -254,6 +254,8 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 " vim-ollama
+let g:ollama_host = 'http://tux:11434'
+
 " Default chat model
 let g:ollama_chat_model = 'llama3'
 
