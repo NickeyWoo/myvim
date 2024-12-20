@@ -254,12 +254,15 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 " vim-ollama
-let g:ollama_chat_model = 'llama3.2'
+" let g:ollama_chat_model = 'llama3.2'
+let g:ollama_chat_model = 'qwen2.5-coder:0.5b'
 let g:ollama_host = 'http://localhost:11434'
 let g:ollama_model = 'qwen2.5-coder:0.5b'
 let g:ollama_fim_prefix = '<|fim_prefix|>'
 let g:ollama_fim_middle = '<|fim_middle|>'
 let g:ollama_fim_suffix = '<|fim_suffix|>'
+
+nmap <silent> <leader>ai :OllamaChat<cr>
 
 " coc
 set updatetime=300
