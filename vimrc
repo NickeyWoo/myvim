@@ -97,6 +97,7 @@ Plug 'chxuan/vim-buffer'
 Plug 'haya14busa/incsearch.vim'
 Plug 'chxuan/change-colorscheme'
 Plug 'neoclide/coc.nvim'
+Plug 'gergap/vim-ollama'
 
 call plug#end()  
 
@@ -252,6 +253,13 @@ let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
+" vim-ollama
+let g:ollama_chat_model = 'llama3.2'
+let g:ollama_host = 'http://localhost:11434'
+let g:ollama_model = 'qwen2.5-coder:32b'
+let g:ollama_fim_prefix = '<|fim_prefix|>'
+let g:ollama_fim_middle = '<|fim_middle|>'
+let g:ollama_fim_suffix = '<|fim_suffix|>'
 
 " coc
 set updatetime=300
