@@ -261,6 +261,7 @@ let g:ollama_model = 'qwen2.5-coder:0.5b'
 let g:ollama_fim_prefix = '<|fim_prefix|>'
 let g:ollama_fim_middle = '<|fim_middle|>'
 let g:ollama_fim_suffix = '<|fim_suffix|>'
+let g:ollama_logfile = '/tmp/ollama-vim.log'
 
 nmap <silent> <leader>ai :OllamaChat<cr>
 
