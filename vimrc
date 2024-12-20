@@ -254,14 +254,33 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 " vim-ollama
-" let g:ollama_chat_model = 'llama3.2'
-let g:ollama_chat_model = 'qwen2.5-coder:0.5b'
-let g:ollama_host = 'http://localhost:11434'
-let g:ollama_model = 'qwen2.5-coder:0.5b'
+" Default chat model
+let g:ollama_chat_model = 'llama3'
+
+" Codellama models
+let g:ollama_model = 'codellama:13b-code'
+let g:ollama_model = 'codellama:7b-code'
+let g:ollama_model = 'codellama:code'
+
+" Codegemma (small and fast)
+let g:ollama_model = 'codegemma:2b'
 let g:ollama_fim_prefix = '<|fim_prefix|>'
 let g:ollama_fim_middle = '<|fim_middle|>'
 let g:ollama_fim_suffix = '<|fim_suffix|>'
-let g:ollama_logfile = '/tmp/ollama-vim.log'
+
+" qwen2.5-coder (0.5b, 1.5b, 3b, 7b, 14b, 32b)
+" smaller is faster, bigger is better"
+" https://ollama.com/library/qwen2.5-coder
+let g:ollama_model = 'qwen2.5-coder:3b'
+let g:ollama_fim_prefix = '<|fim_prefix|>'
+let g:ollama_fim_middle = '<|fim_middle|>'
+let g:ollama_fim_suffix = '<|fim_suffix|>'
+
+" Deepseek-coder-v2
+let g:ollama_model = 'deepseek-coder-v2:16b-lite-base-q4_0'
+let g:ollama_fim_prefix = '<｜fim▁begin｜>'
+let g:ollama_fim_suffix = '<｜fim▁hole｜>'
+let g:ollama_fim_middle = '<｜fim▁end｜>'
 
 nmap <silent> <leader>ai :OllamaChat<cr>
 
