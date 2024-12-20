@@ -257,7 +257,7 @@ let g:cpp_no_function_highlight = 1
 let g:ollama_host = 'http://localhost:11434'
 
 " Default chat model
-let g:ollama_chat_model = 'llama3'
+let g:ollama_chat_model = 'llama3.2'
 
 " Codellama models
 let g:ollama_model = 'codellama:13b-code'
