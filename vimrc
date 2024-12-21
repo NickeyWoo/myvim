@@ -97,7 +97,7 @@ Plug 'chxuan/vim-buffer'
 Plug 'haya14busa/incsearch.vim'
 Plug 'chxuan/change-colorscheme'
 Plug 'neoclide/coc.nvim'
-Plug 'gergap/vim-ollama'
+" Plug 'gergap/vim-ollama'
 
 call plug#end()  
 
