@@ -1,4 +1,12 @@
 {
+  "suggest.noselect": true,
+  "suggest.enablePreview": true,
+  "suggest.snippetIndicator": "⭐",
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.timeout": 5000,
+  "suggest.detailMaxLength": 60,
+  "suggest.floatEnable": true,
+  "suggest.triggerCompletionWait": 100,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "prettier.bracketSpacing": false,
