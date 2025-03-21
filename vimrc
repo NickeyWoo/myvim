@@ -147,6 +147,8 @@ nmap <c-l> <c-w>l
 
 nmap <silent> cf :ClangFormat<cr>
 
+nmap <silent> lw :set wrap<cr>
+nmap <silent> ln :set nowrap<cr>
 nmap <silent> ew <c-w><c-w>
 nmap <silent> en :set number!<cr>:IndentLinesToggle<cr>
 nmap <silent> ep :set paste!<cr>
