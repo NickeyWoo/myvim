@@ -188,6 +188,7 @@ let g:clang_format#code_style = "google"
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
 let g:clang_format#style_options = {
+            \ "ColumnLimit" : 90,
             \ "DerivePointerAlignment" : "false",
             \ "PointerAlignment" : "Left",
             \ "SortIncludes" : "false",
