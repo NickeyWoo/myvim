@@ -31,9 +31,9 @@ set cindent
 set smartindent
 set expandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 " set nowrap
 set backspace=2
 set sidescroll=10
@@ -320,8 +320,20 @@ let g:coc_global_extensions = [
       \ 'coc-sql', 'coc-protobuf',
       \ 'coc-snippets', 'coc-pairs', 'coc-word',
       \ 'coc-translator',
-      \ 'coc-git',
+      \ 'coc-git', 'coc-python',
       \ ]
+
+" 输入字符后自动触发补全
+let g:coc_auto_trigger = 'insert'
+
+" 使用 Ctrl+J/K 上下移动补全菜单
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
+
+" 美化补全菜单
+highlight CocMenuSel guibg=#569CD6 guifg=white
+highlight CocPumThumb guibg=#569CD6
+let g:coc_pum_bg_color = '#1E1E1E'
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
@@ -329,10 +341,10 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" 回车时优先选择补全项，无补全时才换行
+inoremap <silent><expr> <CR>
+      \ coc#pum#visible() ? coc#pum#confirm() :
+      \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
