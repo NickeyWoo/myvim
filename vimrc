@@ -93,6 +93,7 @@ Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dense-analysis/ale'
 Plug 'chxuan/vim-buffer'
 Plug 'haya14busa/incsearch.vim'
 Plug 'chxuan/change-colorscheme'
@@ -166,6 +167,13 @@ nmap <silent> g/ <Plug>(incsearch-stay)
 
 " 打开文件自动定位到最后编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
+
+" ale
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
+\}
 
 " indentline
 let g:indent_guides_guide_size = 1
