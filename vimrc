@@ -320,7 +320,7 @@ let g:coc_global_extensions = [
       \ 'coc-sql', 'coc-protobuf',
       \ 'coc-snippets', 'coc-pairs', 'coc-word',
       \ 'coc-translator',
-      \ 'coc-git', 'coc-python',
+      \ 'coc-git',
       \ ]
 
 " 输入字符后自动触发补全
