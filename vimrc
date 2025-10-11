@@ -148,8 +148,7 @@ nmap <c-l> <c-w>l
 
 nmap <silent> cf :ClangFormat<cr>
 
-nmap <silent> lw :set wrap<cr>
-nmap <silent> ln :set nowrap<cr>
+nmap <silent> <leader><leader>w :set wrap!<cr>
 nmap <silent> ew <c-w><c-w>
 nmap <silent> en :set number!<cr>:IndentLinesToggle<cr>
 nmap <silent> ep :set paste!<cr>
@@ -326,6 +325,8 @@ let g:coc_global_extensions = [
 
 " 输入字符后自动触发补全
 let g:coc_auto_trigger = 'insert'
+let g:ale_lint_on_text_changed = 'never'  " 关闭实时检查
+let g:ale_lint_on_save = 1  " 只在保存时检查
 
 " 使用 Ctrl+J/K 上下移动补全菜单
 inoremap <C-j> <C-n>
