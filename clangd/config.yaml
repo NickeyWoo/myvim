@@ -48,6 +48,8 @@ CompileFlags:
     - '-I/home/nickwu/QQMail/mm3rd/boost/'
     - '-I/home/nickwu/QQMail/mm3rd/curl/include/'
     - '-I/home/nickwu/QQMail/mm3rd/hadoop/libhdfs/'
+    - '-I/home/nickwu/QQMail/mm3rd/inja/'
+    - '-I/home/nickwu/QQMail/mm3rd/inja/include'
     - '-I/home/nickwu/QQMail/mm3rd/nlohmann-json/'
     - '-I/home/nickwu/QQMail/mm3rd/nlohmann-json/include'
     - '-I/home/nickwu/QQMail/mm3rd/nlohmann-json/include/nlohmann'
