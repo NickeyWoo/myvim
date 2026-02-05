@@ -26,6 +26,7 @@ CompileFlags:
     - '-I/home/nickwu/QQMail/comm2/newrpc/stream'
     - '-I/home/nickwu/mmgateway/eyereportapi'
     - '-I/home/nickwu/QQMail/weixin'
+    - '-I/home/nickwu/QQMail/weixin/mmfinderluban/proto'
     - '-I/home/nickwu/QQMail/weixin/mmfinderluban/comm/env_util'
     - '-I/home/nickwu/QQMail/weixin/mmfinderluban/comm/3rd/inja34'
     - '-I/home/nickwu/QQMail/weixin/mmfinderluban/comm/3rd/fast-cpp-csv-parser'
